@@ -1,0 +1,19 @@
+<!-- 
+
+This file defines the list of tables in sql server for which schema and data validation need to be performed.
+<tables> - root element in which each table configuration needs to define
+	<table> - for each table configuration one table definition is required
+		id - id attribute is used for identification, it do not have any significance in application processing logic
+		<schema> - schema name in which table is present, *mandatory field
+		<name> - table name , *mandatory field
+		<rowCountToValidate> - number of rows that need to be validated, optional default value is configured in application.proerties file.
+ -->
+<tables>
+<table id="1" >
+		<schema>dv_test1</schema>
+		<name>validate_test1</name>
+		<rowCountToValidate>3</rowCountToValidate>
+		<columnTypeCheckRequired>TRUE</columnTypeCheckRequired>
+</table>
+
+</tables>

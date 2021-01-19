@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
+<style>
+table {
+    width:80%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: #dddddd;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+}
+th{
+    padding: 10px;
+    font-size: 16px;
+}
+td {
+    padding: 5px;
+    text-align: left;
+    background-color: aliceblue;
+}
+h2,h3{
+	color: #6495ed;
+} 
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+ul.a {
+    list-style-type: circle;
+	font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+}
+</style>
+</head>
+<body>
+	<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="#">
+                  <span class="logoHolder"></span>
+                  <!--<span class="loginHeaderText"></span>-->
+          </a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+         
+        </div><!--/.nav-collapse -->
+    </nav> 
+  <h2 align="center">$clientName data Comparision for $report.name</h2>
+<table align="center">
+  <tr>
+    <td style="font-weight:bold;width:30%;">Table name</td>
+    <td>$report.name</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">No Of Rows Compared</td>
+    ##<td>$report.noOfRowsCompared</td>		
+    <td>$mathTool.add($report.noOfMatchedRows, $report.noOfMismatchedRows)</td>
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">No Of Matched Rows</td>
+    <td>$report.noOfMatchedRows</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">No Of Mismatched Rows</td>
+    <td>$report.noOfMismatchedRows</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">Percentage Of Mismatch</td>
+    <td>$numberTool.format("#0", $report.percentageOfMismatch)</td>		
+  </tr>
+</table>
+
+<div style="margin-left: 10%;margin-right: 10%;margin-top: 3%;">
+<ul class="a">
+  <li><span><b>Note(s):</b></span></li>
+  <li><span>On mouse over of column header, source column data type value will be displayed as tooltip.</span></li>
+  <li><span>Column values whose data fails to match with target data will be displayed in <font color=red>red</font> color with target data as tooltip.</span></li>
+  <li><span>If source table do not have primary key and data mismatchs with target, entair row data will be displayed in <font color=red>red</font> colur with tooltip as <b>'N/A'</b>.</span></li>
+  <li><span>If source table column name contains <font color=red>space</font> it will be replaced by <font color=red>_</font> while comparing target data.</span></li>
+</ul>
+</div>
+
+<br><br>
+<h2 align="center">Mismatched Source Data</h2>
+    <table align="center">
+		<tr>
+    	#foreach( $colName in $report.colNames )
+    		<th align="center" title="$report.colNameTypeMap.get($colName)">$colName</th>
+		#end
+  		</tr>
+		
+    	#foreach( $mismatchedRow in $report.mismatchedRows )
+    	#set ($_index = $foreach.index)
+		<tr>
+	    	#foreach( $colName in $report.colNames )
+	    		#if ($StringUtils.isBlank($mismatchedRow.get($colName)))
+		    	  <td title=#if($StringUtils.isNotBlank($report.mismatchedTargetRows[$_index].get($colName)))"$report.mismatchedTargetRows[$_index].get($colName)" #end>&nbsp;</td>
+			    #else
+		    	  <td title=#if($StringUtils.isNotBlank($report.mismatchedTargetRows[$_index].get($colName)))"$report.mismatchedTargetRows[$_index].get($colName)" #end>
+		    	  	<font color=#if($StringUtils.isNotBlank($report.mismatchedTargetRows[$_index].get($colName)))red #end>$mismatchedRow.get($colName)</font>
+		    	  </td>
+			    #end
+			#end
+	  	</tr>
+		#end
+    </table>
+
+
+<br><br>
+  <h2 align="center">Matched Source Data</h2>
+    <table align="center">
+		<tr>
+    	#foreach( $colName in $report.colNames )
+    		<th align="center" title="$report.colNameTypeMap.get($colName)">$colName</th>
+		#end
+  		</tr>
+		
+    	#foreach( $matchedRow in $report.matchedRows )
+		<tr>
+	    	#foreach( $colName in $report.colNames )
+	    		## #if (!$matchedRow.get($colName))
+	    		#if ($StringUtils.isBlank($matchedRow.get($colName)))
+		    	  <td>&nbsp;</td>
+			    #else
+	    		  <td>$matchedRow.get($colName)</td>
+			    #end
+			#end
+	  	</tr>
+		#end
+    </table>
+   <br><br>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
+<style>
+table {
+    width:80%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: #dddddd;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+}
+th{
+    padding: 10px;
+    font-size: 16px;
+}
+td {
+    padding: 5px;
+    text-align: left;
+    background-color: aliceblue;
+}
+h2,h3{
+	color: #6495ed;
+} 
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+</style>
+</head>
+<body>
+	<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="#">
+                  <span class="logoHolder"></span>
+                  <!--<span class="loginHeaderText"></span>-->
+          </a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+         
+        </div><!--/.nav-collapse -->
+    </nav> 
+  <h2 align="center">Citi GDM Meta data Comparision - Summary Report</h2>
+<table align="center">
+  <tr>
+    <th>&nbsp;</th>
+    <th colspan="1" align="center">Source</th>		
+    <th colspan="1" align="center">Target</th>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">IP & Source System</td>
+    <td>127.0.0.1:3306, Mysql</td>		
+    <td>127.0.0.1:3306, Mysql</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Data Base Name</td>
+    <td>dv_test1</td>		
+    <td>dv_test2</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Schema Name</td>
+    <td>[dv_test1]</td>		
+    <td>N/A</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">User</td>
+    <td>root</td>		
+    <td>root</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Run Date Time</td>
+    <td>Thu Feb 22 13:52:10 IST 2018</td>		
+    <td>Thu Feb 22 13:52:10 IST 2018</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Execution Status</td>
+    <td colspan="2">FAILURE</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Total no. of Tables</td>
+    <td colspan="2">Total : 1, Data matched : 0 (0%), Data mismatched : 1 (100%)</td>		
+  </tr>
+</table>
+
+<br><br>
+<h2 align="center">Non existing tables summary Report</h2>
+<div style="margin-left: 10%;margin-right: 10%; margin-bottom:5%;">
+    <table style="float:left;width:50%;">
+    	<tr><th align="center">Mysql</th></tr>
+    	    </table>
+    <table style="float:right;width:50%;">
+    	<tr><th align="center">MySQL</th></tr>
+    	    </table>
+</div>
+
+
+<br><br>
+  <h2 align="center">Summary Report</h2>
+  <table align="center">
+  <tr>
+    <th align="center">Mysql Table Name</th>
+    <th align="center">Number of Columns</th>		
+    <th align="center">Hive  Table Name</th>		
+    <th align="center">Number of Columns</th>
+        <th align="center">% of DB Type Gap</th>		
+        <th align="center">Report Link</th>		
+    <th align="center">Data Match Status</th>		
+    <th align="center">Rows Matched/ Rows Compared</th>		
+  </tr>
+    <tr>
+    <td><a href="#validate_test1">validate_test1</a></td>
+    <td>6</td>
+    <td>validate_target</td>
+    <td>6</td>
+        <td>0 & [0]</td>
+        <td><a href="validate_test1.html" target="_blank">validate_test1.html</a></td>
+    <td><font color=red>MISMATCH</font></td>
+    <td>1 / 2</td>
+  </tr>
+  </table>
+  
+  
+  <br><br>
+  <h2 align="center">Detail Report for Each Table</h2>
+    <h3 align="center" id="validate_test1">validate_test1 - Comparision Report</h3>
+  <table align="center">
+  <tr>
+    <th align="center">Source column name</th>
+    <th align="center">Source data type</th>		
+    <th align="center">Target column name</th>		
+    <th align="center">Target data type</th>
+  </tr>
+    </table>
+     <br><br>
+</body>
+</html>

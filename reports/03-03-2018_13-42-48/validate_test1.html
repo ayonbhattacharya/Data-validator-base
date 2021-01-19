@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
+<style>
+table {
+    width:80%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: #dddddd;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+}
+th{
+    padding: 10px;
+    font-size: 16px;
+}
+td {
+    padding: 5px;
+    text-align: left;
+    background-color: aliceblue;
+}
+h2,h3{
+	color: #6495ed;
+} 
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+ul.a {
+    list-style-type: circle;
+	font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+}
+</style>
+</head>
+<body>
+	<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="#">
+                  <span class="logoHolder"></span>
+                  <!--<span class="loginHeaderText"></span>-->
+          </a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+         
+        </div><!--/.nav-collapse -->
+    </nav> 
+  <h2 align="center">Citi GDM data Comparision for validate_test1</h2>
+<table align="center">
+  <tr>
+    <td style="font-weight:bold;width:30%;">Table name</td>
+    <td>validate_test1</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">No Of Rows Compared</td>
+        <td>2</td>
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">No Of Matched Rows</td>
+    <td>1</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">No Of Mismatched Rows</td>
+    <td>1</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;width:30%;">Percentage Of Mismatch</td>
+    <td>50</td>		
+  </tr>
+</table>
+
+<div style="margin-left: 10%;margin-right: 10%;margin-top: 3%;">
+<ul class="a">
+  <li><span><b>Note(s):</b></span></li>
+  <li><span>On mouse over of column header, source column data type value will be displayed as tooltip.</span></li>
+  <li><span>Column values whose data fails to match with target data will be displayed in <font color=red>red</font> color with target data as tooltip.</span></li>
+  <li><span>If source table do not have primary key and data mismatchs with target, entair row data will be displayed in <font color=red>red</font> colur with tooltip as <b>'N/A'</b>.</span></li>
+  <li><span>If source table column name contains <font color=red>space</font> it will be replaced by <font color=red>_</font> while comparing target data.</span></li>
+</ul>
+</div>
+
+<br><br>
+<h2 align="center">Mismatched Source Data</h2>
+    <table align="center">
+		<tr>
+    	    		<th align="center" title="$report.colNameTypeMap.get($colName)">Name</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">Address</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">Phone1</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">Balance</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">birth</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">death</th>
+		  		</tr>
+		
+    			<tr>
+	    		    				    	  <td title="N/A" >
+		    	  	<font color=red >Testing Subject2</font>
+		    	  </td>
+			    				    				    	  <td title="N/A" >
+		    	  	<font color=red >Adress of Subject2</font>
+		    	  </td>
+			    				    				    	  <td title="N/A" >
+		    	  	<font color=red >98623465</font>
+		    	  </td>
+			    				    				    	  <td title="N/A" >
+		    	  	<font color=red >6211.875</font>
+		    	  </td>
+			    				    				    	  <td title="N/A" >
+		    	  	<font color=red >2010-03-03</font>
+		    	  </td>
+			    				    				    	  <td title="N/A" >
+		    	  	<font color=red >2019-02-01</font>
+		    	  </td>
+			    				  	</tr>
+		    </table>
+
+
+<br><br>
+  <h2 align="center">Matched Source Data</h2>
+    <table align="center">
+		<tr>
+    	    		<th align="center" title="$report.colNameTypeMap.get($colName)">Name</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">Address</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">Phone1</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">Balance</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">birth</th>
+		    		<th align="center" title="$report.colNameTypeMap.get($colName)">death</th>
+		  		</tr>
+		
+    			<tr>
+	    		    			    			    		  <td>Testing Subject1</td>
+			    				    			    			    		  <td>Adress of Subject</td>
+			    				    			    			    		  <td>986675565</td>
+			    				    			    			    		  <td>785211.9</td>
+			    				    			    			    		  <td>2009-09-09</td>
+			    				    			    			    		  <td>2018-01-01</td>
+			    				  	</tr>
+		    </table>
+   <br><br>
+</body>
+</html>

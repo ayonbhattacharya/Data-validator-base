@@ -1,0 +1,134 @@
+#wrapper {
+			width: 100%;
+			background: white;
+		}
+        .rect[Attributes Style] {
+    width: 25.75px;
+    height: 406.391px;
+    opacity: 0;
+    x: 0px;
+    y: 0px;
+}
+        .d3plus_label{
+            font-size: 20px !important;
+        }
+        #highcharts-6{
+           /* margin-left: 15%;*/
+            margin-top: 27%;
+        }
+        .leftpanel{
+                width: 45%;
+    float: left;
+    position: relative;
+        }
+        .rightpanel{
+            width: 55%;
+            float: right;
+            position: relative;
+        }
+			.mydropdown {
+    font-size: 14px!important;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-top: 4px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    width: 9%;
+    padding-left: 35px;
+    color: #fff;
+    background-color: #5BC0DE;
+}
+
+.navbar-nav {
+            float: right !important;
+            margin: 0;
+        }
+        .navbar {
+            position: relative;
+            min-height: 50px;
+            margin-bottom: 20px !important;
+            border: 1px solid transparent;
+        }
+        .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+            border-color: #337ab7 !important;
+            background-color: #337ab7 !important;
+        }
+        .navbar-default .navbar-nav>li>a {
+            color: white;
+        }
+        .page-header, .navbar-brand {
+            color: white !important;
+                font-size: 24px;
+        }
+        .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: white;
+}
+        .logoHolder {
+    width: 102px;
+    height: 34px;
+    background: url('../dist/img/Logo.png') no-repeat;
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+}
+        .loginHeaderText {
+    position: relative;
+    bottom: 16px;
+    font-size: 20px;
+    left: 10px;
+}
+     /*.highcharts-container{
+            margin-left: 73px;
+            margin-top: 33px;
+        }  */ 
+	
+	</style>
+   	<style>
+        #gauge{
+		position:relative;
+		height:40%;
+		width:40%;
+        left:0%;
+		top:20%;
+		
+		}
+		
+        
+
+     /*  #viz{
+		position:relative;
+		height:550px;
+		width:920px;
+				 
+        } */
+        .tabledata{
+            
+            float: right;
+	        text-align: right;
+	        clear: none;
+            overflow-y: scroll;
+			table-layout:fixed;
+        }
+        table{
+            background-color: aliceblue;
+            position: relative;
+            margin-top:10%;
+            
+            width: 96%;
+            height: 50%;
+            
+        }
+        .customtable{
+            
+            table-layout: fixed;
+            overflow: auto;
+            display: block;
+        }
+body { font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif; font-weight: 200; background-color: white; }
+        th { text-align: center; border:2px solid; padding: 50px; color: cornflowerblue;background-color: white;  }
+        th, td { font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif; padding: 0 1em 0.5ex 0;border:1px solid #ddd;  cellspacing:20px; font-size: 20px; overflow:hidden;}
+        th.center, td.center { text-align: left;padding: 10px; font-size: 20px; }
+        th.num, td.num { text-align: left; padding: 10px;}
+		

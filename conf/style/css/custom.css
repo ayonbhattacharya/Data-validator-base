@@ -1,0 +1,188 @@
+.page-header, .navbar-brand{color:white !important ;}
+label { color: #337ab7;}
+
+
+table#connectionDetails tr th,table#connectionDetails tr td {text-align: left;}
+
+
+.succesTextSource , .succesTextTarget , .succesJobCreation, .emptyCls{
+    color: green;
+    font-size: 16px;
+    position: relative;
+    text-align: center;
+    display: none;
+}
+
+.primaryCls{
+    margin-top: 14px;
+    border:none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+#page-wrapper{
+    margin : 0px !important;
+    border-left: none !important;
+}
+.navbar{
+    margin-bottom : 0px !important;
+}
+.navbar-nav {
+    float: right;
+    margin: 0;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #337ab7 !important;
+    background-color: #337ab7 !important;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #555;
+    background-color: white;
+}
+
+.panel-success>.panel-heading{
+    color: #3c763d;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.dataTables_wrapper {
+    position: relative;
+    clear: both;
+    overflow: hidden;
+}
+.dataTables_filter{
+    float: right;
+}
+
+.backToPage{
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+        margin-right: 50px;
+}
+
+.form_datetime{
+    width: 330px;
+}
+
+.completedCls{
+	    background: #d6f5d6;
+		font-weight: bold;
+}
+
+.failedCls{
+	background: #ff9999;
+	font-weight: bold;
+}
+
+.startedCls{
+	background: #5bc0de;
+	font-weight: bold;
+}
+.stopping{
+	background: #FFA500;
+    font-weight: bold;
+}
+.tableListHolder{
+    width: 600px;
+    height: 300px;
+    border: 1px solid #cfcfcf;
+    margin-left: 20px;
+    overflow: auto;
+   /* display:none;*/
+}
+.tableItem{
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #cfcfcf;
+}
+.tableName{
+    margin: 10px !important;
+}
+.spanTableName{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 90%;
+    position: relative;
+    top: 3px;
+}
+
+.tableListHeader{
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    font-size: 15px;
+}
+
+.spanNoMessage{
+    position: relative;
+    top: 100px;
+    text-align: center;
+    left: 140px;
+}
+
+.tab-content{
+    background: #f9f9f9;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: black !important;
+    background-color: #f9f9f9 !important;
+}
+.nav-pills>li>a {
+     border-radius: 0px !important;
+}
+.logoHolder{
+	width: 102px;
+    height: 34px;
+    background: url('../img/Logo.png') no-repeat;
+    display: inline-block;
+    position: relative;
+    bottom: 10px;
+}
+.loginHeaderText{
+    position: relative;
+    bottom: 16px;
+    font-size: 20px;
+    left: 10px;
+}
+
+.completedJobs{
+   width: 110px;
+    height: 58px;
+    background: url('../img/completed.png') no-repeat;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+}
+.failedJobs{
+    width: 110px;
+    height: 58px;
+    background: url('../img/failed.png') no-repeat;
+    display: inline-block;
+    position: relative;
+    top: 16px;
+    background-size: 50px 50px;
+}
+.sumJobs{
+    width: 110px;
+    height: 58px;
+    background: url('../img/sum.png') no-repeat;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    background-size: 80px 60px;
+}
+
+.textCenter{
+        text-align: left  !important;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
+<style>
+table {
+    width:80%;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: #dddddd;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+}
+th{
+    padding: 10px;
+    font-size: 16px;
+}
+td {
+    padding: 5px;
+    text-align: left;
+    background-color: aliceblue;
+}
+h2,h3{
+	color: #6495ed;
+} 
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th	{
+    background-color: black;
+    color: white;
+}
+</style>
+</head>
+<body>
+	<!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom:0;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          <a class="navbar-brand" href="#">
+                  <span class="logoHolder"></span>
+                  <!--<span class="loginHeaderText"></span>-->
+          </a>
+         </div>
+         <div id="navbar" class="navbar-collapse collapse">
+         
+        </div><!--/.nav-collapse -->
+    </nav> 
+  <h2 align="center">$clientName Meta data Comparision - Summary Report</h2>
+<table align="center">
+  <tr>
+    <th>&nbsp;</th>
+    <th colspan="1" align="center">Source</th>		
+    <th colspan="1" align="center">Target</th>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">IP & Source System</td>
+    <td>$report.sourceIp</td>		
+    <td>$report.targetIp</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Data Base Name</td>
+    <td>$report.sourceDbName</td>		
+    <td>$report.targetDbName</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Schema Name</td>
+    <td>$report.sourceSchemaName</td>		
+    <td>$report.targetSchemaName</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">User</td>
+    <td>$report.sourceUserName</td>		
+    <td>$report.targetUserName</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Run Date Time</td>
+    <td>$report.runTime</td>		
+    <td>$report.runTime</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Execution Status</td>
+    <td colspan="2">$report.status</td>		
+  </tr>
+  <tr>
+    <td style="font-weight:bold;">Total no. of Tables</td>
+    <td colspan="2">Total : ${report.mdSummary.size()}, Data matched : $report.noOfDataMatchTbls ($numberTool.format("#0", $mathTool.mul($mathTool.div($report.noOfDataMatchTbls,${report.mdSummary.size()}), 100))%), Data mismatched : $report.noOfDataMisMatchTbls ($numberTool.format("#0", $mathTool.mul($mathTool.div($report.noOfDataMisMatchTbls,${report.mdSummary.size()}), 100))%)</td>		
+  </tr>
+</table>
+
+<br><br>
+<h2 align="center">Non existing tables summary Report</h2>
+<div style="margin-left: 10%;margin-right: 10%; margin-bottom:5%;">
+    <table style="float:left;width:50%;">
+    	<tr><th align="center">$dbSystem</th></tr>
+    	#foreach( $nonExistingRdbmsTbl in $report.nonExistingRdbmsTbls )
+		<tr><td>$nonExistingRdbmsTbl</td></tr>
+		#end
+    </table>
+    <table style="float:right;width:50%;">
+    	<tr><th align="center">MySQL</th></tr>
+    	#foreach( $nonExistingHiveTbl in $report.nonExistingHiveTbls )
+		<tr><td>$nonExistingHiveTbl</td></tr>
+		#end
+    </table>
+</div>
+
+
+<br><br>
+  <h2 align="center">Summary Report</h2>
+  <table align="center">
+  <tr>
+    <th align="center">$dbSystem Table Name</th>
+    <th align="center">Number of Columns</th>		
+    <th align="center">Hive  Table Name</th>		
+    <th align="center">Number of Columns</th>
+    ##<th align="center">Column count, Percentage of Gap</th>		
+    <th align="center">% of DB Type Gap</th>		
+    ##<th align="center">Connection Status</th>		
+    <th align="center">Report Link</th>		
+    <th align="center">Data Match Status</th>		
+    <th align="center">Rows Matched/ Rows Compared</th>		
+  </tr>
+  #foreach( $md in $report.mdSummary )
+  <tr>
+    <td><a href="#$md.sourceTblName">$md.sourceTblName</a></td>
+    <td>$md.sourceTblColCount</td>
+    <td>$md.targetTblName</td>
+    <td>$md.targetTbleColCount</td>
+    ##<td>$md.sourceTblColCount & [$numberTool.format("#0", $md.colCountPercentageGap)]</td>
+    <td>$md.dbTypeGap & [$numberTool.format("#0", $md.colTypePercentageGap)]</td>
+    ##<td>$md.status</td>
+    <td>$md.reportLink</td>
+    <td>$md.matchStatus</td>
+    <td>$md.noOfMatchedRows / $mathTool.add($md.noOfMatchedRows, $md.noOfMismatchedRows)</td>
+  </tr>
+  #end
+</table>
+  
+  
+  <br><br>
+  <h2 align="center">Detail Report for Each Table</h2>
+  #foreach( $tableSummary in $report.tableSummaryList )
+  <h3 align="center" id="$tableSummary.tblName">$tableSummary.tblName - Comparision Report</h3>
+  <table align="center">
+  <tr>
+    <th align="center">Source column name</th>
+    <th align="center">Source data type</th>		
+    <th align="center">Target column name</th>		
+    <th align="center">Target data type</th>
+  </tr>
+  #foreach( $rep in $tableSummary.report )
+  <tr>
+    <td>$rep.sourceColName</td>
+    <td>$rep.sourceDatatype</td>
+    <td>$rep.targetColName</td>
+    <td>$rep.targetDatatype</td>
+  </tr>
+  #end
+  </table>
+  #end
+   <br><br>
+</body>
+</html>

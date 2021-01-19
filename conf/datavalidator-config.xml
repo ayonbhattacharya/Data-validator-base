@@ -1,0 +1,45 @@
+<!-- 
+
+This file defines the list of tables in sql server for which schema and data validation need to be performed.
+<tables> - root element in which each table configuration needs to define
+	<table> - for each table configuration one table definition is required
+		id - id attribute is used for identification, it do not have any significance in application processing logic
+		<schema> - schema name in which table is present, *mandatory field
+		<name> - table name , *mandatory field
+		<rowCountToValidate> - number of rows that need to be validated, optional default value is configured in application.proerties file.
+ -->
+<tables>
+<table id="1" >
+		<sourceSchema>dv_test1</sourceSchema>
+		<sourceTable>validate_test1</sourceTable>	
+		<targetSchema>dv_test2</targetSchema>
+		<targetTable>validate_target</targetTable>
+		<rowCountToValidate>2</rowCountToValidate>
+		<columnTypeCheckRequired>TRUE</columnTypeCheckRequired>
+</table>
+<table id="2" >
+		<sourceSchema>dv_test1</sourceSchema>
+		<sourceTable>ColumnTest1</sourceTable>	
+		<targetSchema>dv_test2</targetSchema>
+		<targetTable>ColumnTest_target</targetTable>
+		<rowCountToValidate>5</rowCountToValidate>
+		<columnTypeCheckRequired>TRUE</columnTypeCheckRequired>
+</table>
+<table id="3" >
+		<sourceSchema>dv_test1</sourceSchema>
+		<sourceTable>Employee</sourceTable>	
+		<targetSchema>dv_test2</targetSchema>
+		<targetTable>Employee_target</targetTable>
+		<rowCountToValidate>3</rowCountToValidate>
+		<columnTypeCheckRequired>TRUE</columnTypeCheckRequired>
+</table>
+<table id="4" >
+		<sourceSchema>dv_test1</sourceSchema>
+		<sourceTable>Test_Table2</sourceTable>	
+		<targetSchema>dv_test2</targetSchema>
+		<targetTable>Test_Table2_target</targetTable>
+		<rowCountToValidate>3</rowCountToValidate>
+		<columnTypeCheckRequired>TRUE</columnTypeCheckRequired>
+</table>
+
+</tables>
